@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class Scrn1 extends StatelessWidget {
-  const Scrn1({super.key});
+  final String name;
+  final String mail;
+  const Scrn1({super.key, required this.name,required this.mail});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class Scrn1 extends StatelessWidget {
           ),
           Center(
             child: Text(
-              'Crepin Fadjo',
+               name,
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 30.0,
@@ -72,7 +74,7 @@ class Scrn1 extends StatelessWidget {
                 Icon(Icons.mail, color: Colors.teal),
                 SizedBox(width: 50),
                 Text(
-                  'fadcrepin@gmail.com',
+                  mail ,
                   style: TextStyle(color: Colors.teal, fontSize: 20),
                 ),
               ],
