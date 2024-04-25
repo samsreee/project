@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:project/third.dart';
 
 class Scrn1 extends StatelessWidget {
   final String name;
   final String mail;
-  const Scrn1({super.key, required this.name,required this.mail});
+  final String phone;
+  const Scrn1({super.key, required this.name,required this.mail,required this.phone});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,7 @@ class Scrn1 extends StatelessWidget {
                 Icon(Icons.call, color: Colors.teal),
                 SizedBox(width: 50),
                 Text(
-                  '+22996119149',
+                  phone,
                   style: TextStyle(color: Colors.teal, fontSize: 20),
                 )
               ],
@@ -80,6 +82,20 @@ class Scrn1 extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(height: 30),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Success(),));
+              },
+              style: ElevatedButton.styleFrom(),
+              child: Text(
+                'Submit',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    color: Colors.teal),
+              )),
+
         ],
       ),
     );

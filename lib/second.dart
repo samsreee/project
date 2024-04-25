@@ -16,24 +16,27 @@ class Login extends StatelessWidget {
   final confirmController = TextEditingController(
 
   );
+  final phoneController =TextEditingController(
+
+  );
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 10),
+          SizedBox(height: 5),
           Center(
             child: Text(
               'Sign up',
-              style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
             ),
           ),
           Text(
             'Create your account',
             style: TextStyle(fontSize: 20),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 5),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 50),
             child: TextField(
@@ -63,6 +66,25 @@ class Login extends StatelessWidget {
                 fillColor: Colors.purpleAccent,
                 filled: true,
                 prefixIcon: Icon(Icons.mail),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50),
+            child: TextField(
+              textAlign: TextAlign.center,
+              controller: phoneController,
+              decoration: InputDecoration(
+                hintText: 'Phone number',
+                fillColor: Colors.purpleAccent,
+                filled: true,
+                prefixIcon: Icon(Icons.call),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(10),
@@ -115,7 +137,7 @@ class Login extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Scrn1(name:myController.text,mail: mailController.text),
+                    builder: (context) => Scrn1(name:myController.text,mail: mailController.text,phone: phoneController.text),
                   ),
                 );
               },
@@ -131,10 +153,10 @@ class Login extends StatelessWidget {
             'or',
             style: TextStyle(fontSize: 20),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 2),
           ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Scrn1(name: '',mail: '',),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Scrn1(name: '',mail: '',phone: ''),));
               },
               style: ElevatedButton.styleFrom(),
               child: Text(
@@ -144,7 +166,7 @@ class Login extends StatelessWidget {
                     fontSize: 15,
                     color: Colors.purple),
               )),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           Row(
             children: [
               SizedBox(width: 550),
@@ -158,6 +180,7 @@ class Login extends StatelessWidget {
                   print(mailController.text);
                   print(passController.text);
                   print(confirmController.text);
+                  print(phoneController.text);
                 },
                 child: Text(
                   'Login',
